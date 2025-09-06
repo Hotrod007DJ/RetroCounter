@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#0b0b0e">
+  <title>Retro Counter</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon-180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="top-row">
+      <!-- Fixed-height decrement button -->
+      <button id="displayBtn" class="pressy display-btn" aria-label="Current count. Tap to decrease.">
+        <div id="displayContent" class="display-content">
+          <span id="count" class="count" aria-live="polite">0</span>
+          <span id="countLabel" class="count-label" hidden></span>
+        </div>
+      </button>
+
+      <!-- Settings (uses theme secondary color) -->
+      <button id="settingsBtn" class="icon-btn" aria-label="Open settings" title="Settings">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9c0 .65.39 1.24 1 1.51.3.14.63.22.97.22H21a2 2 0 1 1 0 4h-.09c-.34 0-.67.08-.97.22-.61.27-1 .86-1 1.51Z"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Giant increment button fills remainder down to bottom -->
+    <button id="bigButton" class="pressy big-button" aria-label="Increment counter">
+      <span class="plus">+</span>
+    </button>
+  </div>
+
+  <!-- Settings overlay -->
+  <div id="overlay" class="overlay" aria-hidden="true">
+    <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+      <div class="sheet-header">
+        <h2 id="sheetTitle">Settings</h2>
+        <button id="closeOverlay" class="close-btn" aria-label="Close settings">&times;</button>
+      </div>
+
+      <div class="section">
+        <label for="labelInput" class="label-legend">Label</label>
+        <input id="labelInput" class="text-input" type="text" maxlength="20" />
+      </div>
+
+      <div class="section">
+        <h3 class="subhead">Theme</h3>
+        <div id="themes" class="themes"></div>
+      </div>
+
+      <div class="section section-reset">
+        <button id="resetBtn" class="pill danger">Reset Counter</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js" defer></script>
+</body>
+</html>
