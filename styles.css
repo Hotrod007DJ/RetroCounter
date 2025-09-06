@@ -77,9 +77,6 @@ body{
 }
 .count-label{ margin-left:4px; }
 
-.text-input{
-  margin-top: 5px;
-}
 
 /* Big increment button fills to bottom */
 .big-button{
@@ -121,6 +118,15 @@ body{
 }
 .overlay{ overscroll-behavior: contain; }
 
+/* Stop double-tap zoom on buttons/swatch tiles while keeping normal pinch zoom */
+button,
+.pressy,
+.icon-btn,
+.swatch,
+.swatch-inner {
+  touch-action: manipulation;
+}
+
 .sheet-header{ display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; }
 .close-btn{ background:var(--secondary); border:3px solid var(--panel-border); color:#000; border-radius:10px; padding:4px 10px; font-size:20px }
 
@@ -136,7 +142,9 @@ body{
   background:rgba(255,255,255,.15);
   color:var(--ink);
   font-weight:700;
+  margin-top: 5px;
   outline:none;
+  font-size: 16px;
 }
 .text-input:focus{ outline:none; }
 
